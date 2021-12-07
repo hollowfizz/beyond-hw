@@ -59,6 +59,10 @@ The project uses the Flyway database-migration tool for version controlling. The
 
 ## Containerization
 Added a Dockerfile to the project which build and package the project with ```maven:3-3-jdk-8``` and run the app with ```openjdk:8-jdk-alpine```. The Dockerfile runs the application with PROD profile therefore it's starts the migration on the "tmt" database.
+Build image:
+```docker build . -t tasktool```
+Run app:
+```docker run -d -p 8080:8080 tasktool```
 
 ## Scheduler
 Created the scheduler for the bonus task. It runs every 5 minutes and check if there's any pending tasks which dateTime attribute passed the current time.
