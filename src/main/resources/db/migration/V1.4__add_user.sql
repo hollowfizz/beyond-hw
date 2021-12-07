@@ -1,0 +1,2 @@
+insert into USERS (username, password, first_name, last_name, create_date, update_date)
+values ('admin', '$2a$12$5TaDbdy0qbAv4St0pLTUDeZAfnYtGzsyAVk5TEm0BcXUuP9g5Q.ae', 'Admin', 'Admin', CURRENT_DATE, CURRENT_DATE);
