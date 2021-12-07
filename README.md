@@ -20,6 +20,7 @@ Created 3 profiles for the project:
 - Default: Uses the production database (tmt). Scheduler is enabled. Migration, security is disabled.
 - PROD: Uses the production database (tmt). Scheduler, migration is enabled.
 - TEST: Uses test database (tmtTest), data_test.sql init the database with test data. Scheduler, migration, security disabled.
+
 (The databases are H2 in-memory databases)
 
 ## Testing
