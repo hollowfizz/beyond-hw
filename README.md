@@ -31,7 +31,7 @@ Implemented a token-based authentication with JSON Web Tokens (JWT) library. I'v
 ```
 security.enabled=true
 ```
-If you enable it, you won't be able to access the REST endpoints until successful authentication. Use the following cURL command to login with any existing user (admin is exists in "tmt" database):
+If you enable it, you won't be able to access the REST endpoints until successful authentication. Use the following cURL command to login with any existing user (admin user exists in "tmt" database):
 ```
 curl -L -X POST 'http://localhost:8080/login' -H 'Content-Type: application/json' --data-raw '{
     "username":"admin",
@@ -48,6 +48,8 @@ This token has to be in the request header in order to reach all the other REST 
 ```
 curl -L -X GET 'http://localhost:8080/api/user' -H 'Accept: application/json' -H 'Content-Type: application/json' -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbXSwiZXhwIjoxNjM4OTI4MDA2LCJpYXQiOjE2Mzg5MTAwMDZ9.-799cruzlvQNCUcfoQ9x9UfrlW08ZhfxPAnXZUME7xpC3q9ocYRM6ThijoXqVLKiN00Beq9x1nD3rDO4_9eK9g'
 ```
+Password for all users by default is: ```test```
+
 ## Logging
 Created a custom DB logging functionality which uses the LOGS table to persist TRACE, INFO, DEBUG, WARN, ERROR messages and exceptions. These log levels can be changed in the application-*.properties files.
 ```
@@ -56,6 +58,7 @@ logger.loglevel=DEBUG
 
 ## Migration
 The project uses the Flyway database-migration tool for version controlling. The migration files can be found in the resources/db/migration path. New migration can created under /migration folder with the following naming convention: ```V2__migration_description.sql```
+In any case the database can be reverted to base with the following command: ```mvn flyway:clean -Dflyway.url=jdbc:h2:~/tmt -Dflyway.user=admin -Dflyway.password=admin```
 
 ## Containerization
 Added a Dockerfile to the project which build and package the project with ```maven:3-3-jdk-8``` and run the app with ```openjdk:8-jdk-alpine```. The Dockerfile runs the application with PROD profile therefore it's starts the migration on the "tmt" database.
