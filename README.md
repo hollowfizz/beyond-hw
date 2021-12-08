@@ -1,6 +1,6 @@
 # Task Management Tool for Beyond homework
 
-Spring Boot application for managing users and their tasks created by Daniel Gerendas.
+Spring Boot application for managing users and their tasks created by Daniel Gyula Gerendas.
 
 ## Project details
 - Java: 8
