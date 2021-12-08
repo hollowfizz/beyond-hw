@@ -17,8 +17,8 @@ Spring Boot application for managing users and their tasks.
 
 ## Profiles
 Created 3 profiles for the project:
-- Default: Uses the production database (tmt). Scheduler is enabled. Migration, security is disabled.
-- PROD: Uses the production database (tmt). Scheduler, migration is enabled.
+- Default: Uses the production database (tmt). Scheduler, migration is enabled. Security is disabled.
+- PROD: Uses the production database (tmt). Scheduler, migration is enabled. Security is disabled for easier testing.
 - TEST: Uses test database (tmtTest), data_test.sql init the database with test data. Scheduler, migration, security disabled.
 
 (The databases are H2 in-memory databases)
@@ -65,7 +65,7 @@ Run app:
 ```docker run -d -p 8080:8080 tasktool```
 
 ## Scheduler
-Created the scheduler for the bonus task. It runs every 5 minutes and check if there's any pending tasks which dateTime attribute passed the current time.
+Created a scheduler for the bonus task. It runs every 5 minutes and check if there's any pending tasks which dateTime attribute passed the current time.
 
 
 
